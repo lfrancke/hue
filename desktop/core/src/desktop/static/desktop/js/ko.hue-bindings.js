@@ -4068,7 +4068,7 @@
                 identifierChain: token.parseLocation.identifierChain,
                 sourceType: self.snippet.type(),
                 defaultDatabase: self.snippet.database()
-              }, function (path) {
+              }).done(function (path) {
                 token.qualifiedIdentifier = path.join('.');
               })
             }

@@ -800,7 +800,7 @@ from metadata.conf import has_navigator
           sourceType: sourceType,
           defaultDatabase: defaultDatabase,
           identifierChain: data.identifierChain
-        }, function (path) {
+        }).done(function (path) {
           var showInAssistPubSub = huePubSub.subscribe('context.popover.show.in.assist', function () {
             huePubSub.publish('assist.db.highlight', {
               sourceType: sourceType,
@@ -1236,7 +1236,7 @@ from metadata.conf import has_navigator
           sourceType: 'solr',
           identifierChain: data.identifierChain,
           defaultDatabase: 'default'
-        }, function (path) {
+        }).done(function (path) {
           var showInAssistPubSub = huePubSub.subscribe('context.popover.show.in.assist', function () {
             huePubSub.publish('assist.db.highlight', {
               sourceType: 'solr',
@@ -1645,7 +1645,7 @@ from metadata.conf import has_navigator
             sourceType: self.sourceType,
             identifierChain: self.data.identifierChain,
             defaultDatabase: self.defaultDatabase
-          }, function (path) {
+          }).done(function (path) {
 
             var showInMetastorePubSub = huePubSub.subscribe('context.popover.open.in.metastore', function (type) {
               if (IS_HUE_4) {
