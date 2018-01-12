@@ -154,8 +154,9 @@ def new_search(request):
       'can_edit_index': can_edit_index(request.user)
     })
 
-def browse(request, name, is_mobile=False):
+def browse(request, name, is_mobile=False):  
   engine = request.GET.get('engine', 'solr')
+  query_id = request.GET.get('history_id')
   collections = get_engine(request.user, engine).datasets()
   if not collections and engine == 'solr':
     return no_collections(request)
